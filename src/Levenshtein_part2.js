@@ -4,12 +4,13 @@ import {useState} from "react";
 export default function Levenshtein() {
 
   const [word1, setWord1] = useState("");
-  const [word2, setWord2] = useState("");
+  const [maxDistance, setMaxDistance] = useState(0);
+  const [txt, setTxt] = useState("");
   const [statistics, setStatistics] = useState(0);
 
   function handleSubmit() {
     console.log("submitted");
-    setStatistics(levenshteinDistance(word1, word2))
+    setStatistics(levenshteinDistance(word1, txt))
   }
 
   const levenshteinDistance = (str1 = '', str2 = '') => {
@@ -36,28 +37,38 @@ export default function Levenshtein() {
 
   return (
       <div className="App">
-        <h1>M411: Levenshtein</h1>
+          <h1>M411: Levenshtein</h1>
+          <br/>
 
-        <br/>
-        <h4>Word 1</h4>
-        <input type="text" value={word1}
-               onChange={(event) => setWord1(event.target.value)}/>
-
-        <br/>
-        <h4>Word 2</h4>
-        <input type="text" value={word2}
-               onChange={(event) => setWord2(event.target.value)}/>
+          <h4>Word 1</h4>
+          <input type="text" value={word1}
+                 onChange={(event) => setWord1(event.target.value)}/>
 
           <br/>
-        <button onClick={handleSubmit}>
-          calculate
-        </button>
+          <h4>Max distance</h4>
+          <input type="text"
+                 onChange={(event) => maxDistance(event.target.value)}/>
 
-        <div>
           <br/>
-          <h4>statistics</h4>
-          {statistics}
-        </div>
+          <h4>Text</h4>
+          <textarea type="text" onChange={(event) => {
+              setTxt(event.target.value)
+          }}>{txt}</textarea>
+          <br/>
+
+          <br/>
+          <button onClick={handleSubmit}>
+              calculate
+          </button>
+
+          <div>
+            <br/>
+            <h4>statistics</h4>
+            {statistics}
+
+            <br/>
+            Found words: {statistics}
+          </div>
       </div>
   );
 }
