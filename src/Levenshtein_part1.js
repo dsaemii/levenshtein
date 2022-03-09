@@ -36,28 +36,25 @@ export default function Levenshtein_part1() {
 
   return (
       <div className="App">
-        <h1>M411: Levenshtein</h1>
-
-        <br/>
-        <h4>Word 1</h4>
-        <input type="text" value={word1}
-               onChange={(event) => setWord1(event.target.value)}/>
-
-        <br/>
-        <h4>Word 2</h4>
-        <input type="text" value={word2}
-               onChange={(event) => setWord2(event.target.value)}/>
-
+          <h1>M411: Levenshtein</h1>
           <br/>
-        <button onClick={handleSubmit}>
-          calculate
-        </button>
+          <h4>Word 1</h4>
+          <input type="text" value={word1}
+                 onChange={(event) => setWord1(event.target.value)}/>
+          <br/>
+          <h4>Word 2</h4>
+          <input type="text" value={word2}
+               onChange={(event) => setWord2(event.target.value)}/>
+          <br/>
+          <button onClick={handleSubmit}>
+              calculate
+          </button>
 
-        <div>
+          <div>
           <br/>
           <h4>statistics</h4>
-          {statistics}
-        </div>
+              {statistics}
+          </div>
       </div>
   );
 }
