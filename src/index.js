@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Levenshtein_part1 from './Levenshtein_part1';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Levenshtein_part1 />
   </React.StrictMode>,
   document.getElementById('root')
 );
